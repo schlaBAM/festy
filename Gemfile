@@ -50,9 +50,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  gem "guard"
-  gem "guard-livereload", require: false
-  gem "rack-livereload"
+  gem "hotwire-spark"
 end
 
 group :test do
