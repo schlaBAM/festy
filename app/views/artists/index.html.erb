@@ -1,0 +1,31 @@
+<div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-5xl mx-auto">
+    <h1 class="text-4xl font-extrabold text-center text-gray-900 mb-12">Artists</h1>
+
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <% @artists.each do |artist| %>
+        <div class="bg-white rounded-3xl shadow-lg p-8 flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
+          <div>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-3"><%= artist.name %></h2>
+            <p class="text-gray-600 mb-6 min-h-[4.5rem]"><%= artist.bio %></p>
+          </div>
+
+          <div class="space-y-2 text-sm">
+            <% if artist.home_url.present? %>
+              <a href="<%= artist.home_url %>" target="_blank" class="block text-blue-600 hover:underline">🌐 Website</a>
+            <% end %>
+            <% if artist.sp_url.present? %>
+              <a href="<%= artist.sp_url %>" target="_blank" class="block text-green-600 hover:underline">🎵 Spotify</a>
+            <% end %>
+            <% if artist.am_url.present? %>
+              <a href="<%= artist.am_url %>" target="_blank" class="block text-red-600 hover:underline">🍎 Apple Music</a>
+            <% end %>
+            <% if artist.sc_url.present? %>
+              <a href="<%= artist.sc_url %>" target="_blank" class="block text-indigo-600 hover:underline">☁️ SoundCloud</a>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
