@@ -66,3 +66,49 @@ artists.each do |artist_attrs|
 end
 
 puts "Seeded #{artists.size} artists."
+
+
+venues = [
+  {
+    name: "The Velvet Room",
+    address: "123 King Street",
+    city: "Toronto",
+    state: "ON",
+    country: "Canada",
+    capacity: 850,
+    timezone: "America/Toronto"
+  },
+  {
+    name: "Echo Point Amphitheatre",
+    address: "456 Sunset Blvd",
+    city: "Los Angeles",
+    state: "CA",
+    country: "USA",
+    capacity: 5000,
+    timezone: "America/Los_Angeles"
+  },
+  {
+    name: "Neon Cathedral",
+    address: "789 Market Street",
+    city: "San Francisco",
+    state: "CA",
+    country: "USA",
+    capacity: 1200,
+    timezone: "America/Los_Angeles"
+  },
+  {
+    name: "The Lighthouse Lounge",
+    address: "321 Ocean Drive",
+    city: "Vancouver",
+    state: "BC",
+    country: "Canada",
+    capacity: 600,
+    timezone: "America/Vancouver"
+  }
+]
+
+venues.each do |venue|
+  Venue.create!(venue)
+end
+
+puts "Seeded #{venues.size} venues."
