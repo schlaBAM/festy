@@ -67,43 +67,26 @@ end
 
 puts "Seeded #{artists.size} artists."
 
-
 venues = [
   {
     name: "The Velvet Room",
-    address: "123 King Street",
-    city: "Toronto",
-    state: "ON",
-    country: "Canada",
-    capacity: 850,
-    timezone: "America/Toronto"
+    location: "Toronto, ON",
+    website: "https://www.velvetroomto.ca"
   },
   {
     name: "Echo Point Amphitheatre",
-    address: "456 Sunset Blvd",
-    city: "Los Angeles",
-    state: "CA",
-    country: "USA",
-    capacity: 5000,
-    timezone: "America/Los_Angeles"
+    location: "Los Angeles, CA",
+    website: "https://www.echopointla.com"
   },
   {
     name: "Neon Cathedral",
-    address: "789 Market Street",
-    city: "San Francisco",
-    state: "CA",
-    country: "USA",
-    capacity: 1200,
-    timezone: "America/Los_Angeles"
+    location: "San Francisco, CA",
+    website: "https://www.neoncathedralsf.com"
   },
   {
     name: "The Lighthouse Lounge",
-    address: "321 Ocean Drive",
-    city: "Vancouver",
-    state: "BC",
-    country: "Canada",
-    capacity: 600,
-    timezone: "America/Vancouver"
+    location: "Vancouver, BC",
+    website: "https://www.lighthouselounge.ca"
   }
 ]
 
