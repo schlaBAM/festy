@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_30_062657) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_30_232537) do
   create_table "artists", force: :cascade do |t|
     t.string "name"
     t.text "bio"
@@ -20,6 +20,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_30_062657) do
     t.string "sp_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "event_artists", force: :cascade do |t|
+    t.integer "artist_id", null: false
+    t.integer "event_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_event_artists_on_artist_id"
+    t.index ["event_id"], name: "index_event_artists_on_event_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -40,5 +49,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_30_062657) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "event_artists", "artists"
+  add_foreign_key "event_artists", "events"
   add_foreign_key "events", "venues"
 end

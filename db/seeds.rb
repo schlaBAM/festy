@@ -95,3 +95,36 @@ venues.each do |venue|
 end
 
 puts "Seeded #{venues.size} venues."
+
+events = [
+  {
+   name: "Roadhouse Festival",
+   date: DateTime.new(2025, 10, 10, 20, 12, 0),
+   location: "Vancouver, BC",
+   venue_id: 4
+  },
+    {
+   name: "SangFrang Festival",
+   date: DateTime.new(2025, 10, 9, 20, 15, 0),
+   location: "San Francisco, CA",
+   venue_id: 3
+  },
+    {
+   name: "Drake and Friends",
+   date: DateTime.new(2025, 11, 6, 20, 15, 0),
+   location: "Toronto, ON",
+   venue_id: 1
+  },
+    {
+   name: "Fakechella",
+   date: DateTime.new(2025, 12, 25, 21, 30, 0),
+   location: "Los Angeles, CA",
+   venue_id: 2
+  }
+]
+
+events.each do |event|
+  Event.create!(event)
+end
+
+puts "Seeded #{events.size} events."
