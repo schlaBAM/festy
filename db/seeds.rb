@@ -9,6 +9,7 @@
 #   end
 
 Artist.destroy_all
+Event.destroy_all
 
 artists = [
   {

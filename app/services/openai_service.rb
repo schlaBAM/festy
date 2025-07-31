@@ -16,7 +16,16 @@ class OpenaiService
          - A short bio for the artist.
          - Their official website, prioritizing .com domains with clear artist branding.
          - Their Spotify, Apple Music, and SoundCloud links.
-          - Use search terms like '[artist name] official site' and return verified results only — avoid fan pages or third-party profiles."
+          - Use search terms like '[artist name] official site' and return verified results only — avoid fan pages or third-party profiles.
+          The object returned will look like:
+          {
+          name: (artist name)
+          bio: (artist bio)
+          home_url: (homepage)
+          sc_url: (soundcloud)
+          am_url: (apple music)
+          sp_url: (spotify)
+          }"
         }
       ]
 
@@ -30,6 +39,6 @@ class OpenaiService
       results[artist] = text
     end
 
-    puts "#{results}"
+    results
   end
 end
