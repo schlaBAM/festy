@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :venues
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -13,5 +12,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "home#index"
 
-  resources :artists, only: [ :index, :show ]
+  resources :artists, only: [ :index, :show ] do
+    resources :events, only: [ :index ], controller: "artist_events"
+  end
+
+  resources :venues, only: [ :index, :show ]
+  resources :events, only: [ :index, :show ]
 end

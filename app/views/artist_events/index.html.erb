@@ -1,0 +1,41 @@
+<!-- app/views/artist_events/index.html.erb -->
+<div class="min-h-screen bg-gradient-to-b from-gray-50 to-white py-16 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-4xl font-bold text-gray-900 text-center mb-14 tracking-tight">
+      Events Featuring <span class="text-indigo-600"><%= @artist.name %></span>
+    </h1>
+
+    <% if @events.any? %>
+      <div class="space-y-8">
+        <% @events.each do |event| %>
+          <div class="bg-white border border-gray-200 shadow-sm rounded-2xl p-6 transition hover:shadow-md">
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+              <div>
+                <h2 class="text-2xl font-semibold text-gray-800">
+                  <%= event.name %>
+                </h2>
+                <ul class="mt-2 text-gray-600 space-y-1 text-sm">
+                  <li><strong>Date:</strong> <%= event.date.strftime("%B %d, %Y at %I:%M %p") %></li>
+                  <li><strong>Location:</strong> <%= event.location %></li>
+                  <li><strong>Venue:</strong> <%= event.venue&.name || "TBA" %></li>
+                </ul>
+              </div>
+
+              <div class="shrink-0">
+                <%= link_to "View Event", event_path(event), class: "inline-block bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium py-2 px-4 rounded-md shadow-sm" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="text-center text-gray-500 text-lg mt-12">
+        No events found for this artist.
+      </p>
+    <% end %>
+
+    <div class="text-center mt-16">
+      <%= link_to "← Back to All Artists", artists_path, class: "inline-block text-indigo-600 hover:text-indigo-800 text-sm font-medium" %>
+    </div>
+  </div>
+</div>

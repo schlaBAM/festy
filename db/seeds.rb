@@ -128,3 +128,23 @@ events.each do |event|
 end
 
 puts "Seeded #{events.size} events."
+
+artists = Artist.all.to_a
+events = Event.all.to_a
+
+event_artist_records = []
+
+artists.each do |artist|
+  sample_events = events.sample(rand(2..4)) # pick 2-4 random events
+  sample_events.each do |event|
+    event_artist_records << { artist_id: artist.id, event_id: event.id }
+  end
+end
+
+# Optional: Remove duplicates if any (shouldn't be necessary here)
+event_artist_records.uniq!
+
+EventArtist.destroy_all # clear old join records if needed
+EventArtist.create!(event_artist_records)
+
+puts "Seeded #{event_artist_records.size} event_artists with 2-4 events each per artist."
