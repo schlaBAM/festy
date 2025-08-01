@@ -14,7 +14,7 @@
             <% if artist.home_url.present? %>
             <a href="<%= artist.home_url %>" target="_blank" class="block text-blue-600 hover:underline">🌐 Website</a>
             <% end %>
-            <a href="<%= artist_events_path(artist)%>" class="block text-gray-800 font-medium hover:underline hover:text-blue-700 mt-4">📅 View Events</a>
+            <%= link_to "📅 View Events", artist_events_path(artist), class:"block text-gray-800 font-medium hover:underline hover:text-blue-700" %>
             <% if artist.sp_url.present? %>
             <a href="<%= artist.sp_url %>" target="_blank" class="block text-green-600 hover:underline">🎵 Spotify</a>
             <% end %>
@@ -22,7 +22,7 @@
             <a href="<%= artist.am_url %>" target="_blank" class="block text-red-600 hover:underline">🍎 Apple Music</a>
             <% end %>
             <% if artist.sc_url.present? %>
-            <a href="<%= artist.sc_url %>" target="_blank" class="block text-indigo-600 hover:underline">☁️ SoundCloud</a>
+            <a href="<%= artist.sc_url %>" target="_blank" class="block text-orange-600 hover:underline">☁️ SoundCloud</a>
             <% end %>
         </div>
         </div>
