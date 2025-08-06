@@ -35,8 +35,8 @@ class OpenaiService
           temperature: 0.7
       )
 
-      text = response.choices[0].message.content
-      results[artist] = text
+      info = response.choices[0].message.content
+      results[artist] = info
     end
 
     results
@@ -49,7 +49,7 @@ class OpenaiService
       input: [ {
         role: "user",
         content: [
-          { type: "input_text", text: "After reading the text in the image, using your best judgement can you separate the text into a four part object:
+          { type: "input_text", text: "After reading the text in the image, using your best judgement can you separate the text into just a four part JSON object:
           - The event's name (name)
           - The event's location (location)
           - The event's date (date)
@@ -62,76 +62,13 @@ class OpenaiService
       } ]
     )
 
-    puts "#{response}"
-    puts "-------"
-    puts "#{response.output_text}"
+    # example response = "```json\n{\n  \"name\": \"Fvded in the Park\",\n  \"location\": \"Holland Park, BC\",\n  \"date\": \"July 4-5, 2025\",\n  \"artists\": [\n    \"Tiësto\",\n    \"Kaytranada\",\n    \"Disclosure\",\n    \"Black Tiger Sex Machine\",\n    \"Lane 8\",\n    \"Loud Luxury\",\n    \"RL Grime\",\n    \"Sammy Virji\",\n    \"Subtronics\",\n    \"Dabin\",\n    \"Rudim3ntal\",\n    \"Uncle Waffles\",\n    \"AC Slater\",\n    \"Cassian\",\n    \"DJ Heartstring\",\n    \"D.O.D\",\n    \"Juelz\",\n    \"Layton Giordani\",\n    \"Levity\",\n    \"Of The Trees\",\n    \"Partiboi69\",\n    \"Peekaboo\",\n    \"Rebecca Black\",\n    \"Sabai\",\n    \"AK Sports\",\n    \"Goddard\",\n    \"Hainafromchina\",\n    \"Honeyluv\",\n    \"Jackie Hollander\",\n    \"Kitty Cash\",\n    \"Lavern\",\n    \"Maddy O'Neal\",\n    \"Mary Droppinz\",\n    \"Menú\",\n    \"Nick Leon\",\n    \"Nimino\",\n    \"Nooriyah\",\n    \"Riordan\",\n    \"Rova\",\n    \"San Pacho\",\n    \"Taylah Elaine\",\n    \"Werk\",\n    \"Zeemuffin\",\n    \"Zingara\",\n    \"Adam B2B Sayo\",\n    \"Aspen King\",\n    \"Badger (AU)\",\n    \"Buny\",\n    \"Chels\",\n    \"Donna Dada\",\n    \"Destrata\",\n    \"Etoh B2B Nemo\",\n    \"Keepsix\",\n    \"Kelland\",\n    \"Luca Fernandez\",\n    \"Marta\",\n    \"Teenoble\",\n    \"Wave Report\"\n  ]\n}\n```"
 
-    # for reference - example output text 
+    parse_image(response.output_text)
+  end
 
-#     Here’s the information extracted from the image:
-
-# - **name**: Fvded in the Park
-# - **location**: Holland Park, BC
-# - **date**: July 4-5, 2025
-# - **artists**: [
-#     "Tiësto",
-#     "Kaytranada",
-#     "Disclosure DJ Set",
-#     "Black Tiger Sex Machine",
-#     "Lane 8",
-#     "Loud Luxury",
-#     "RL Grime",
-#     "Sammy Virji",
-#     "Subtronics",
-#     "Dabin",
-#     "Rudim3ntal",
-#     "Uncle Waffles",
-#     "AC Slater",
-#     "Cassian",
-#     "DJ Heartstring",
-#     "D.O.D",
-#     "Juelz",
-#     "Layton Giordani",
-#     "Levity",
-#     "Of The Trees",
-#     "Partibo69",
-#     "Peekaboo",
-#     "Rebecca Black",
-#     "Sabai",
-#     "AK Sports",
-#     "Goddard",
-#     "Hainafromchina",
-#     "Honeyluv",
-#     "Jackie Hollander",
-#     "Kitty Cash",
-#     "Lavern",
-#     "Maddy O’Neal",
-#     "Mary Droppinz",
-#     "Men Ü",
-#     "Nick Leon",
-#     "Nimino",
-#     "Nooriyah",
-#     "Riordan",
-#     "Rova",
-#     "San Pacho",
-#     "Taylah Elaine",
-#     "Werk",
-#     "Zeemuffin",
-#     "Zingara",
-#     "Adam B2B Sayo",
-#     "Aspen King",
-#     "Badger (AU)",
-#     "Buny",
-#     "Chels",
-#     "Donna Dada",
-#     "Destrata",
-#     "EtohB2BNemo",
-#     "Keepsix",
-#     "Kelland",
-#     "Luca Fernandez",
-#     "Marta",
-#     "Teenoble",
-#     "Wave Report"
-# ]
+  def parse_image(output_text)
+    result = output_text.gsub(/\A```json\s*|\s*```+\z/, "")
+    JSON.parse(result)
   end
 end
