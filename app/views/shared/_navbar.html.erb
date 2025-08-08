@@ -1,27 +1,48 @@
-<nav class="navbar">
-  <div class="nav-container">
-    <!-- Hamburger Button -->
-    <button id="menu-toggle" class="hamburger" aria-label="Toggle menu">
-      ☰
+<nav class="bg-gray-900 text-white p-4" data-controller="navbar">
+  <div class="flex items-center justify-between">
+    <!-- Brand -->
+    <%= link_to "Festy", root_path, class: "text-lg font-bold" %>
+
+    <!-- Hamburger -->
+    <button data-action="click->navbar#toggle" class="md:hidden">
+      <!-- Simple hamburger icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
     </button>
 
-    <!-- Brand -->
-    <div class="brand"><%= link_to "Festy", root_path, class: "brand-link" %></div>
-
-    <!-- Nav Links -->
-    <ul id="nav-links" class="nav-links">
-      <li><%= link_to "Home", root_path %></li>
+    <!-- Links (Desktop) -->
+    <ul class="hidden md:flex space-x-4">
+      <li><%= link_to "Home", root_path, class: "hover:underline" %></li>
       <%
 =begin%>
- <li><%= link_to "About", about_path %></li> 
+ <li><%= link_to "About", about_path, class: "hover:underline" %></li> 
 <%
 =end%>
-      <li><%= link_to "Events", events_path %></li>
+      <li><%= link_to "Events", events_path, class: "hover:underline" %></li>
       <%
 =begin%>
- <li><%= link_to "Contact", contact_path %></li> 
+ <li><%= link_to "Contact", contact_path, class: "hover:underline" %></li> 
 <%
 =end%>
     </ul>
   </div>
+
+  <!-- Links (Mobile) -->
+  <ul data-navbar-target="menu" class="hidden flex-col space-y-2 mt-4 md:hidden">
+    <li><%= link_to "Home", root_path, class: "hover:underline" %></li>
+    <%
+=begin%>
+ <li><%= link_to "About", about_path, class: "hover:underline" %></li> 
+<%
+=end%>
+    <li><%= link_to "Events", events_path, class: "hover:underline" %></li>
+    <%
+=begin%>
+ <li><%= link_to "Contact", contact_path, class: "hover:underline" %></li> 
+<%
+=end%>
+  </ul>
 </nav>
