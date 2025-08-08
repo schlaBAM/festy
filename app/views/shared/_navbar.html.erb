@@ -1,0 +1,27 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <!-- Hamburger Button -->
+    <button id="menu-toggle" class="hamburger" aria-label="Toggle menu">
+      ☰
+    </button>
+
+    <!-- Brand -->
+    <div class="brand"><%= link_to "Festy", root_path, class: "brand-link" %></div>
+
+    <!-- Nav Links -->
+    <ul id="nav-links" class="nav-links">
+      <li><%= link_to "Home", root_path %></li>
+      <%
+=begin%>
+ <li><%= link_to "About", about_path %></li> 
+<%
+=end%>
+      <li><%= link_to "Events", events_path %></li>
+      <%
+=begin%>
+ <li><%= link_to "Contact", contact_path %></li> 
+<%
+=end%>
+    </ul>
+  </div>
+</nav>
