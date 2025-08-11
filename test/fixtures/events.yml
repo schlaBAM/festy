@@ -1,13 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+fakechella:
+  name: "Fakechella"
   date: 2025-07-29 23:26:57
-  location: MyString
-  venue: one
-
-two:
-  name: MyString
-  date: 2025-07-29 23:26:57
-  location: MyString
-  venue: two
+  location: "Los Angeles, CA"
+  venue: msg

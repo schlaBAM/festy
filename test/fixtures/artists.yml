@@ -1,17 +1,14 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  bio: MyText
-  home_url: MyString
-  sc_url: MyString
-  am_url: MyString
-  sp_url: MyString
+  name: "Artist One"
+  bio: "Bio for artist one"
+  home_url: "https://artistone.example.com"
+  sc_url: ""
+  am_url: ""
+  sp_url: ""
 
 two:
-  name: MyString
-  bio: MyText
-  home_url: MyString
-  sc_url: MyString
-  am_url: MyString
-  sp_url: MyString
+  name: "Artist Two"
+  bio: "Bio for artist two"
+  home_url: "https://artisttwo.example.com"
