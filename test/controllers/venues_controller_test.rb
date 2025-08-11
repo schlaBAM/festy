@@ -2,15 +2,15 @@ require "test_helper"
 
 class VenuesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @venue = venues(:one)
+    @venue = venues(:msg)
   end
 
-  test "should get index" do
+  test "GET index returns success" do
     get venues_url
     assert_response :success
   end
 
-  test "should get new" do
+  test "GET new returns success" do
     get new_venue_url
     assert_response :success
   end
@@ -23,13 +23,8 @@ class VenuesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to venue_url(Venue.last)
   end
 
-  test "should show venue" do
+  test "GET show returns success" do
     get venue_url(@venue)
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get edit_venue_url(@venue)
     assert_response :success
   end
 

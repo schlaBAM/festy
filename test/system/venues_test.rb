@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class VenuesTest < ApplicationSystemTestCase
   setup do
-    @venue = venues(:one)
+    @venue = venues(:msg)
   end
 
   test "visiting the index" do

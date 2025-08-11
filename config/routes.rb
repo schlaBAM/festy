@@ -16,6 +16,6 @@ Rails.application.routes.draw do
     resources :events, only: [ :index ], controller: "artist_events"
   end
 
-  resources :venues, only: [ :index, :show ]
+  resources :venues
   resources :events, only: [ :index, :show ]
 end

@@ -15,10 +15,6 @@ class VenuesController < ApplicationController
     @venue = Venue.new
   end
 
-  # GET /venues/1/edit
-  def edit
-  end
-
   # POST /venues or /venues.json
   def create
     @venue = Venue.new(venue_params)
