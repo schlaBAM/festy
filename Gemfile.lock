@@ -181,7 +181,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.9-x86_64-linux-musl)
       racc (~> 1.4)
-    openai (0.16.0)
+    openai (0.17.1)
       connection_pool
     parallel (1.27.0)
     parser (3.3.8.0)
@@ -361,7 +361,7 @@ DEPENDENCIES
   hotwire-spark
   jbuilder
   jsbundling-rails
-  openai (~> 0.16.0)
+  openai (~> 0.17.1)
   puma (>= 5.0)
   rails (~> 8.0.2)
   rtesseract (~> 3.1)
