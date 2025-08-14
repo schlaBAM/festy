@@ -15,11 +15,11 @@ class UsersTest < ApplicationSystemTestCase
     click_on "New user"
 
     fill_in "Date of birth", with: @user.date_of_birth
-    fill_in "Email", with: @user.email
+    fill_in "Email", with: "new" + @user.email
     fill_in "First name", with: @user.first_name
     fill_in "Last name", with: @user.last_name
     fill_in "Role", with: @user.role
-    fill_in "Username", with: @user.username
+    fill_in "Username", with: @user.username + "bob"
     click_on "Create User"
 
     assert_text "User was successfully created"
