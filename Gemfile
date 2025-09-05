@@ -63,7 +63,7 @@ gem "tailwindcss-ruby", "~> 4.1"
 
 gem "tailwindcss-rails", "~> 4.3"
 
-gem "openai", "~> 0.21.1"
+gem "openai", "~> 0.22.1"
 gem "dotenv-rails", groups: [ :development, :test ]
 
 gem "rtesseract", "~> 3.1"
