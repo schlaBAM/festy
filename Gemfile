@@ -61,7 +61,7 @@ end
 
 gem "tailwindcss-ruby", "~> 4.1"
 
-gem "tailwindcss-rails", "~> 4.3"
+gem "tailwindcss-rails", "~> 4.4"
 
 gem "openai", "~> 0.21.1"
 gem "dotenv-rails", groups: [ :development, :test ]
